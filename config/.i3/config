@@ -214,5 +214,5 @@ bar {
 }
 
 exec_always feh --bg-scale /home/joshua/Pictures/bg.jpeg
-
+exec_always compton --vsync opengl
 bindsym $mod+Shift+x exec i3lock
