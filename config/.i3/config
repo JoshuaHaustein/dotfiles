@@ -55,10 +55,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -67,10 +67,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -79,7 +79,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+y split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -89,7 +89,7 @@ bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -106,7 +106,7 @@ bindsym $mod+a focus parent
 
 set $workspace1 "1: Terminals"
 set $workspace2 "2: Firefox  "
-
+set $workspace0 "10: Spotify "
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -117,7 +117,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace $workspace0
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -129,9 +129,15 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace $workspace0
 
+# Move workspace between screens
+bindsym $mod+Shift+Control+h move workspace to output left
+bindsym $mod+Shift+Control+l move workspace to output right
+
+# Assign certain applications to certain workspaces
 assign [class="Firefox"] $workspace2
+assign [class="Spotify"] $workspace0
 # reload the configuratSon file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -165,9 +171,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% # increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% # decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# Multimedia keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 2 +5% # increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 2 -5% # decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 2 toggle # mute sound
+
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause # toggle play pause
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
