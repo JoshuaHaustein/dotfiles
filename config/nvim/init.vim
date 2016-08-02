@@ -45,10 +45,23 @@ Plugin 'nvie/vim-flake8'
 
 " Status bar mods
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 
 " Tab completion
 Plugin 'ervandew/supertab'
+
+" Toggle comment
+Plugin 'tomtom/tcomment_vim'
+
+" Asynch auto copmplete for neovim
+Plugin 'Shougo/deoplete.nvim'
+
+" Mutliple cursors - Ctrl-n, Ctrl-p, Ctrl-x
+Plugin 'terryma/vim-multiple-cursors'
+
+" Tagbar for class outline
+Plugin 'majutsushi/tagbar'
 
 " After all plugins...
 call vundle#end()
@@ -77,6 +90,19 @@ endfunction
 
 """"""" NERDTree configuration """""""
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+""""""" Airline configuration """""""
+" Enables buffers as tab list
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = '|'
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_theme='dark'
+
+""""""" CTags """"""""
+let g:tagbar_ctags_bin = '/usr/bin/ctags'
+nmap <Leader>tf :TagbarToggle<cr>
+""""""" Color scheme """"""""
+colorscheme stereokai
 
 """"""" General coding stuff """""""
 " Highlight 80th column
@@ -118,7 +144,7 @@ function! s:SetPythonDefaults ()
 	set tabstop=4
 	set softtabstop=4
 	set shiftwidth=4
-	set textwidth=119
+	set textwidth=109
 	set expandtab
 	set autoindent
 	set fileformat=unix
@@ -157,6 +183,13 @@ nnoremap <leader>/ :noh<cr>
 nnoremap <leader>h *N
 " Toggle NERD tree
 nnoremap <leader>tt :NERDTreeToggle<cr>
+" System clipboad
+" nnoremap <leader>y "*y
+" nnoremap <leader>p "*p
+" nnoremap <leader>Y "+y
+" nnoremap <leader>P "+p
 " Insert mode
 inoremap <silent> jk <esc>
-
+" Move faster
+noremap J 5j
+noremap K 5k
