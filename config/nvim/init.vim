@@ -60,6 +60,10 @@ Plugin 'Shougo/deoplete.nvim'
 " Mutliple cursors - Ctrl-n, Ctrl-p, Ctrl-x
 Plugin 'terryma/vim-multiple-cursors'
 
+" Automatic ctag updates
+Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-misc'
+
 " Tagbar for class outline
 Plugin 'majutsushi/tagbar'
 
@@ -80,10 +84,10 @@ let g:SimpylFold_docstring_preview=1
 
 """"""" SuperTab configuration """""""
 "let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
-function! Completefunc(findstart, base)
-    return "\<c-x>\<c-p>"
-endfunction
-
+" function! Completefunc(findstart, base)
+"     return "\<c-x>\<c-p>"
+" endfunction
+"
 "call SuperTabChain(Completefunc, '<c-n>')
 
 "let g:SuperTabCompletionContexts = ['g:ContextText2']
@@ -97,10 +101,19 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = '|'
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme='dark'
+let g:airline_powerline_fonts=1
 
 """"""" CTags """"""""
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
-nmap <Leader>tf :TagbarToggle<cr>
+nmap <Leader>b :TagbarToggle<cr>
+"""""" easytags """"""
+" Disable easytags highlighting. I dont see the point anyways and it slows down vim significantly
+let g:easytags_auto_highlight = 0
+" Let easytags use project-specific tag files
+" set tags=./tags
+let g:easytags_dynamic_files = 2
+""""""" CtrlP """"""""
+
 """"""" Color scheme """"""""
 colorscheme stereokai
 
@@ -123,8 +136,20 @@ set tabstop=4
 set softtabstop=4
 set smarttab
 set incsearch
+set number showmatch
+set shell=/usr/bin/zsh
 " Let vim-gitgutter do its thing on large files
 let g:gitgutter_max_signs=10000
+let g:josh_hightlight_toggle = 0
+
+" Function for toggling between relative and absolute line numbers
+function! NumberToggle()
+    if(&rnu == 1)
+        set nornu
+    else
+        set rnu
+    endif
+endfunction
 
 " If your terminal's background is white (light theme), uncomment the following
 " to make EasyMotion's cues much easier to read.
@@ -136,7 +161,6 @@ let g:gitgutter_max_signs=10000
 
 """"""" Python stuff """""""
 syntax enable
-set number showmatch
 " Set PEP8 indentation
 au BufNewFile,BufRead *.py :call <sid>SetPythonDefaults()
 
@@ -172,17 +196,24 @@ let mapleader=" "
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 " Moving between windows
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
+" Switching buffers
+nnoremap <leader>b :bnext<cr>
+nnoremap <leader>B :bprevious<cr>
 " Some additional shortcuts
 " Turn off search highlights
-nnoremap <leader>/ :noh<cr>
+" nnoremap <leader>/ :noh<cr>
 " Highlight current word
-nnoremap <leader>h *N
+nnoremap <leader>/ :nohlsearch<cr>
+nnoremap * *N
 " Toggle NERD tree
 nnoremap <leader>tt :NERDTreeToggle<cr>
+nnoremap <leader>j  :CtrlPTag<cr>
+" Toggle relative/absolute line numbering
+nnoremap <leader>l :call NumberToggle()<cr>
 " System clipboad
 " nnoremap <leader>y "*y
 " nnoremap <leader>p "*p
@@ -193,3 +224,5 @@ inoremap <silent> jk <esc>
 " Move faster
 noremap J 5j
 noremap K 5k
+noremap L 5l
+noremap H 5h

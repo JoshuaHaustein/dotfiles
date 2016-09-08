@@ -107,12 +107,13 @@ bindsym $mod+a focus parent
 set $workspace1 "1: Terminals"
 set $workspace2 "2: Firefox  "
 set $workspace3 "3: Thunderbird  "
+set $workspace4 "4: Neovim"
 set $workspace0 "10: Spotify "
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -136,7 +137,7 @@ bindsym $mod+F12 workspace 22
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -238,6 +239,6 @@ bar {
 }
 
 exec_always feh --bg-scale /home/joshua/Pictures/bg.jpeg
-exec_always compton --vsync opengl
+exec_always compton --vsync opengl -f
 bindsym $mod+Shift+p exec i3lock -c 111111
 bindsym $mod+Shift+x exec --no-startup-id "i3lock -c 111111; sudo pm-suspend"
