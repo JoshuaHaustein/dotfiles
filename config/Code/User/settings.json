@@ -1,0 +1,164 @@
+{
+    "editor.fontSize": 13,
+    "editor.minimap.enabled": false,
+    "editor.formatOnSave": true,
+    "workbench.colorTheme": "One Monokai",
+    "window.zoomLevel": -1,
+    "telemetry.enableCrashReporter": false,
+    "vim.neovimPath": "/usr/bin/nvim",
+    "vim.enableNeovim": true,
+    "vim.easymotion": true,
+    "vim.easymotionMarkerBackgroundColor": "black",
+    "vim.easymotionMarkerFontFamily": "Droid Sans Mono",
+    "vim.easymotionMarkerFontSize": "12",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "J"
+            ],
+            "after": [
+                "5",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "5",
+                "h"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "after": [
+                "5",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "5",
+                "l"
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                "J"
+            ],
+            "after": [
+                "5",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "5",
+                "h"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "after": [
+                "5",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "5",
+                "l"
+            ]
+        },
+        {
+            "before": [
+                "Tab"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<Shift>",
+                "<Tab>"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        }
+    ],
+    // "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-d>": false,
+        "<C-b>": false,
+        "<C-u>": false,
+        "<C-j>": false,
+        "<C-`>": false,
+        "<C-S-<": false,
+        "<C-S-e": false,
+        "<C-S-t": false,
+    },
+    "debug.openDebug": "openOnSessionStart",
+    "python.linting.enabled": true,
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.pycodestyleArgs": [
+        "--max-line-length",
+        "120"
+    ],
+    "python.formatting.autopep8Args": [
+        "--max-line-length",
+        "120"
+    ],
+    "breadcrumbs.enabled": true,
+    "extensions.autoUpdate": false,
+    "python.jediEnabled": false,
+    "problems.autoReveal": false,
+    "ros.distro": "melodic",
+    "C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: WebKit, UseTab: Never}",
+    "terminal.integrated.rendererType": "dom",
+    "zenMode.hideTabs": false,
+    "workbench.enableExperiments": false,
+    "workbench.editor.highlightModifiedTabs": true,
+    "zentabs.applyLimitFor": "editorGroup",
+    "zentabs.maximumOpenedTabs": 6,
+    "window.titleBarStyle": "custom",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.intelliSenseMode": "clang-x64",
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "latex-workshop.view.pdf.viewer": "tab",
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "C_Cpp.default.cStandard": "c11",
+    "editor.wordWrapColumn": 120,
+}
