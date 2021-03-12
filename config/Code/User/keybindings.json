@@ -1,11 +1,71 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
     {
+        "command": "vscode-neovim.compositeEscape1",
+        "key": "j",
+        "when": "neovim.mode == insert",
+        "args": "j"
+    },
+    {
+        "command": "vscode-neovim.compositeEscape2",
+        "key": "k",
+        "when": "neovim.mode == insert",
+        "args": "k"
+    },
+    {
         "key": "ctrl+'",
         "command": "workbench.action.terminal.toggleTerminal"
     },
     {
         "key": "ctrl+`",
         "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "-editor.action.selectHighlights",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "-addCursorsAtSearchResults",
+        "when": "fileMatchOrMatchFocus && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "-selectAllSearchEditorMatches",
+        "when": "inSearchEditor"
+    },
+    {
+        "key": "ctrl+k right",
+        "command": "-workbench.action.moveActiveEditorGroupRight"
+    },
+    {
+        "key": "ctrl+k left",
+        "command": "-workbench.action.moveActiveEditorGroupLeft"
+    },
+    {
+        "key": "ctrl+shift+j",
+        "command": "-workbench.action.search.toggleQueryDetails",
+        "when": "inSearchEditor || searchViewletFocus"
+    },
+    {
+        "key": "ctrl+shift+h",
+        "command": "-workbench.action.replaceInFiles"
+    },
+    {
+        "key": "ctrl+alt+right",
+        "command": "-workbench.action.moveEditorToNextGroup"
+    },
+    {
+        "key": "ctrl+alt+left",
+        "command": "-workbench.action.moveEditorToPreviousGroup"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "workbench.action.moveEditorToRightGroup"
+    },
+    {
+        "key": "ctrl+shift+h",
+        "command": "workbench.action.moveEditorToLeftGroup"
     }
 ]
