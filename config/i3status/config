@@ -11,11 +11,12 @@ general {
         interval = 1
 }
 
-order += "ipv6"
+# order += "ipv6"
 order += "ethernet _first_"
 order += "disk /"
 order += "disk /home/"
 order += "load"
+#order += "cpu_temperature 0"
 order += "volume master"
 order += "tztime local"
 
@@ -30,7 +31,7 @@ tztime local {
 }
 
 load {
-        format = "%1min"
+        format = "Load: %1min"
 }
 
 disk "/" {
@@ -41,8 +42,12 @@ disk "/home/" {
         format = "Home: %avail"
 }
 
+cpu_temperature 0 {
+        format = "Temp(CPU): %degrees °C"
+}
+
 volume master {
         format = "♪: %volume"
         format_muted = "♪: muted (%volume)"
-        device = "pulse:bluez_sink.04_5D_4B_EA_C3_57.a2dp_sink"
+        device = "pulse:alsa_output.pci-0000_2f_00.4.analog-stereo"
 }
